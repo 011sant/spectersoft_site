@@ -2,11 +2,11 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Specter Software</title>
+  <title>Specter</title>
   <style>
     body {
-      background-color: #1a1a1a;
-      color: #e0e0e0;
+      background-color: #000;
+      color: #00ff00;
       font-family: 'Courier New', Courier, monospace;
       display: flex;
       flex-direction: column;
@@ -16,32 +16,65 @@
       margin: 0;
       text-align: center;
     }
-    img {
-      width: 200px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    h1 {
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
     }
-    a {
-      margin-top: 15px;
-      display: block;
-      color: #00ffcc;
-      text-decoration: none;
+    .hash-container {
+      background-color: rgba(0, 0, 0, 0.9);
+      border: 2px solid #00ff00;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 15px #00ff00;
+      font-size: 16px;
+      text-align: left;
+      width: 400px;
+    }
+    .terminal {
+      color: #00ff00;
       font-weight: bold;
     }
-    a:hover {
-      text-decoration: underline;
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 14px;
+      background-color: #00ff00;
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .glitch {
+      animation: glitch 1.2s infinite;
+    }
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
+      50% { text-shadow: -2px -2px #ff00ff, 2px 2px #00ffff; }
+      100% { text-shadow: 2px -2px #ff00ff, -2px 2px #00ffff; }
     }
   </style>
 </head>
 <body>
-  <h1>Bem-vindo à Specter Software</h1>
-  
-  <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Ftenor.com%2Fsearch%2Fshitpost-troll-gifs&psig=AOvVaw2aU0tEJgtxbujlVJcvTlmW&ust=1741748293244000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJio-aGEgYwDFQAAAAAdAAAAABAE" target="_blank">
-    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fmontink.com%2Fmemesch%2Fmeme-pablo-copo-shitpost-jdcns&psig=AOvVaw2aU0tEJgtxbujlVJcvTlmW&ust=1741748293244000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJio-aGEgYwDFQAAAAAdAAAAABAn" alt="Imagem Representativa">
-  </a>
+  <h1 class="glitch">Specter Terminal 00</h1>
 
-  <p>Estamos preparando algo insano!</p>
+  <div class="hash-container">
+    <p class="terminal">$ hash -gen</p>
+    <p class="terminal">
+      <script>
+        function generateRandomHash() {
+          const chars = '0123456789abcdef';
+          let hash = '';
+          for (let i = 0; i < 64; i++) {
+            hash += chars[Math.floor(Math.random() * chars.length)];
+          }
+          return hash;
+        }
+        document.write(generateRandomHash());
+      </script>
+      <span class="cursor"></span>
+    </p>
+  </div>
+
+  <p>_> ₢ Specter </p>
 </body>
 </html>
-
