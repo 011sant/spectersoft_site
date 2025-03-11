@@ -1,80 +1,161 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Specter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A Terminal revived by Angus Nicneven, the first Arcent. Author of the novel, Stars Bleed.">
+  <meta name="Content-Language" content="english">
+  <title>Terminal 00</title>
+
+  <!-- Estilos CSS embutidos -->
   <style>
     body {
-      background-color: #000;
-      color: #00ff00;
-      font-family: 'Courier New', Courier, monospace;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
       text-align: center;
+      overflow-x: hidden;
+      background: url("https://angusnicneven.com/images/00havemercy.gif") no-repeat center center fixed;
+      background-size: cover;
     }
-    h1 {
-      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+
+    .warning {
+      position: absolute;
+      z-index: -1;
     }
-    .hash-container {
-      background-color: rgba(0, 0, 0, 0.9);
-      border: 2px solid #00ff00;
-      padding: 15px;
-      border-radius: 5px;
-      box-shadow: 0 0 15px #00ff00;
-      font-size: 16px;
-      text-align: left;
-      width: 400px;
+
+    .ayy {
+      box-shadow: 0px 5px 10px #000000;
     }
-    .terminal {
-      color: #00ff00;
-      font-weight: bold;
-    }
-    .cursor {
+
+    #un,
+    #rre {
       display: inline-block;
-      width: 8px;
-      height: 14px;
-      background-color: #00ff00;
-      animation: blink 0.8s infinite;
+      width: 350px;
+      height: 35px;
+      background: url("https://angusnicneven.com/images/un.gif");
     }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+
+    #un:hover {
+      background: url("https://angusnicneven.com/images/unn4.gif");
     }
-    .glitch {
-      animation: glitch 1.2s infinite;
+
+    #rre {
+      width: 700px;
+      height: 200px;
+      background: url("https://angusnicneven.com/images/rre2.gif");
     }
-    @keyframes glitch {
-      0% { text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
-      50% { text-shadow: -2px -2px #ff00ff, 2px 2px #00ffff; }
-      100% { text-shadow: 2px -2px #ff00ff, -2px 2px #00ffff; }
+
+    #rre:hover {
+      background: url("https://angusnicneven.com/images/vvv.gif");
+    }
+
+    .t,
+    .t2 {
+      position: absolute;
+      left: 50%;
+      top: 6000px;
+      transform: translateX(-50%);
+      z-index: 5;
+    }
+
+    .reveal {
+      opacity: 0.6;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .reveal:hover {
+      opacity: 1.0;
+      transition: opacity .55s ease-in-out;
+    }
+
+    #info {
+      position: relative;
+      width: 771px;
+      height: 20px;
+      margin: 0 auto;
+      background-color: #000000;
+      padding: 16px;
+      border: 1px solid #d2738a;
+      overflow: hidden;
+    }
+
+    #info>span {
+      position: absolute;
+      color: #c1b492;
+      white-space: pre;
+      animation: info 20s linear infinite;
+    }
+
+    @keyframes info {
+      0% {
+        left: 800px;
+      }
+
+      100% {
+        left: -2080px;
+      }
+    }
+
+    #info:hover>span {
+      animation-play-state: paused;
+    }
+
+    .space {
+      display: block;
+      height: 100px;
     }
   </style>
-</head>
-<body>
-  <h1 class="glitch">Specter Terminal 00</h1>
 
-  <div class="hash-container">
-    <p class="terminal">$ hash -gen</p>
-    <p class="terminal">
-      <script>
-        function generateRandomHash() {
-          const chars = '0123456789abcdef';
-          let hash = '';
-          for (let i = 0; i < 64; i++) {
-            hash += chars[Math.floor(Math.random() * chars.length)];
-          }
-          return hash;
-        }
-        document.write(generateRandomHash());
-      </script>
-      <span class="cursor"></span>
-    </p>
+  <!-- Script JavaScript embutido -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const infoText = document.querySelector('#info span');
+      infoText.addEventListener('mouseover', function () {
+        alert('Você está sobre o texto!');
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <!-- Seção do texto em movimento -->
+  <div id="info">
+    <span>Ｔｅｒｍｉｎａｌ ００ may be traversed by way of probes. Current [probe] classification: ００. Penetrate the depths of our pain with that, dear traveler.</span>
   </div>
 
-  <p>_> ₢ Specter </p>
+  <!-- Espaço entre seções -->
+  <div class="space"></div>
+
+  <!-- Exibindo os GIFs com links -->
+  <img draggable="false" src="https://angusnicneven.com/images/deadend.gif" class="t" alt="those" />
+  <img draggable="false" src="https://angusnicneven.com/images/deadend.gif" class="t2" alt="organs" />
+
+  <!-- Links com GIFs de fundo -->
+  <ul>
+    <li>
+      <a href="indexx">
+        <div id="un" alt="are"></div>
+      </a>
+      <a href="Sol_onset">
+        <div id="rre" alt="when"></div>
+      </a>
+    </li>
+  </ul>
+
+  <!-- Link adicional com GIF -->
+  <a href="quolle_cencuun_pellsen_en_somet_nac">
+    <img draggable="false" class="ayy" src="https://angusnicneven.com/images/With_Wilbells_will_why_waste_whit_worrying.gif" />
+  </a>
+
+  <!-- Caixa de alerta invisível -->
+  <div class="warning">
+    <img draggable="false" src="https://angusnicneven.com/images/thisisanalertwarning.gif" />
+  </div>
+
+  <!-- Imagem interativa e animada -->
+  <div class="reveal">
+    <img draggable="false" src="https://angusnicneven.com/images/We_havemercyimage.gif" />
+  </div>
+
 </body>
+
 </html>
