@@ -1,161 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A Terminal revived by Angus Nicneven, the first Arcent. Author of the novel, Stars Bleed.">
-  <meta name="Content-Language" content="english">
-  <title>Terminal 00</title>
-
-  <!-- Estilos CSS embutidos -->
-  <style>
-    body {
-      text-align: center;
-      overflow-x: hidden;
-      background: url("https://angusnicneven.com/images/00havemercy.gif") no-repeat center center fixed;
-      background-size: cover;
-    }
-
-    .warning {
-      position: absolute;
-      z-index: -1;
-    }
-
-    .ayy {
-      box-shadow: 0px 5px 10px #000000;
-    }
-
-    #un,
-    #rre {
-      display: inline-block;
-      width: 350px;
-      height: 35px;
-      background: url("https://angusnicneven.com/images/un.gif");
-    }
-
-    #un:hover {
-      background: url("https://angusnicneven.com/images/unn4.gif");
-    }
-
-    #rre {
-      width: 700px;
-      height: 200px;
-      background: url("https://angusnicneven.com/images/rre2.gif");
-    }
-
-    #rre:hover {
-      background: url("https://angusnicneven.com/images/vvv.gif");
-    }
-
-    .t,
-    .t2 {
-      position: absolute;
-      left: 50%;
-      top: 6000px;
-      transform: translateX(-50%);
-      z-index: 5;
-    }
-
-    .reveal {
-      opacity: 0.6;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .reveal:hover {
-      opacity: 1.0;
-      transition: opacity .55s ease-in-out;
-    }
-
-    #info {
-      position: relative;
-      width: 771px;
-      height: 20px;
-      margin: 0 auto;
-      background-color: #000000;
-      padding: 16px;
-      border: 1px solid #d2738a;
-      overflow: hidden;
-    }
-
-    #info>span {
-      position: absolute;
-      color: #c1b492;
-      white-space: pre;
-      animation: info 20s linear infinite;
-    }
-
-    @keyframes info {
-      0% {
-        left: 800px;
-      }
-
-      100% {
-        left: -2080px;
-      }
-    }
-
-    #info:hover>span {
-      animation-play-state: paused;
-    }
-
-    .space {
-      display: block;
-      height: 100px;
-    }
-  </style>
-
-  <!-- Script JavaScript embutido -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const infoText = document.querySelector('#info span');
-      infoText.addEventListener('mouseover', function () {
-        alert('Você está sobre o texto!');
-      });
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specter Software - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #0f1624;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo svg {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            text-align: center;
+            padding: 50px 0;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #ffffff, #a0a0ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .countdown {
+            display: flex;
+            margin: 30px 0;
+            gap: 20px;
+        }
+        
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .countdown-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .notification-form {
+            margin-top: 40px;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .notification-form input {
+            width: 70%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+            font-size: 1rem;
+        }
+        
+        .notification-form button {
+            width: 30%;
+            padding: 15px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            background: #3c6cff;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .notification-form button:hover {
+            background: #2a50c7;
+        }
+        
+        .cloud-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        .cloud {
+            position: absolute;
+            opacity: 0.05;
+            animation: float 30s infinite linear;
+        }
+        
+        .cloud:nth-child(1) {
+            top: 20%;
+            left: -100px;
+            animation-duration: 90s;
+            transform: scale(0.6);
+        }
+        
+        .cloud:nth-child(2) {
+            top: 40%;
+            left: -150px;
+            animation-duration: 60s;
+            animation-delay: 10s;
+            transform: scale(0.8);
+        }
+        
+        .cloud:nth-child(3) {
+            top: 60%;
+            left: -80px;
+            animation-duration: 70s;
+            animation-delay: 5s;
+            transform: scale(0.4);
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateX(0) scale(0.6);
+                opacity: 0.05;
+            }
+            50% {
+                opacity: 0.08;
+            }
+            100% {
+                transform: translateX(calc(100vw + 200px)) scale(0.6);
+                opacity: 0.05;
+            }
+        }
+        
+        footer {
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .countdown-value {
+                font-size: 1.4rem;
+            }
+            
+            .notification-form input,
+            .notification-form button {
+                width: 100%;
+                border-radius: 5px;
+            }
+            
+            .notification-form button {
+                margin-top: 10px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <!-- Seção do texto em movimento -->
-  <div id="info">
-    <span>Ｔｅｒｍｉｎａｌ ００ may be traversed by way of probes. Current [probe] classification: ００. Penetrate the depths of our pain with that, dear traveler.</span>
-  </div>
+    <div class="cloud-animation">
+        <div class="cloud">
+            <svg width="200" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                <path d="M14.381 9.02721C14.9767 8.81911 15.6178 8.70588 16.2857 8.70588C16.9404 8.70588 17.5693 8.81468 18.1551 9.01498M7.11616 11.6089C6.8475 11.5567 6.56983 11.5294 6.28571 11.5294C3.91878 11.5294 2 13.4256 2 15.7647C2 18.1038 3.91878 20 6.28571 20H16.2857C19.4416 20 22 17.4717 22 14.3529C22 11.8811 20.393 9.78024 18.1551 9.01498M7.11616 11.6089C6.88706 10.9978 6.7619 10.3369 6.7619 9.64706C6.7619 6.52827 9.32028 4 12.4762 4C15.4159 4 17.8371 6.19371 18.1551 9.01498M7.11616 11.6089C7.68059 11.7184 8.20528 11.9374 8.66667 12.2426" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path>
+            </svg>
+        </div>
+        <div class="cloud">
+            <svg width="200" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                <path d="M14.381 9.02721C14.9767 8.81911 15.6178 8.70588 16.2857 8.70588C16.9404 8.70588 17.5693 8.81468 18.1551 9.01498M7.11616 11.6089C6.8475 11.5567 6.56983 11.5294 6.28571 11.5294C3.91878 11.5294 2 13.4256 2 15.7647C2 18.1038 3.91878 20 6.28571 20H16.2857C19.4416 20 22 17.4717 22 14.3529C22 11.8811 20.393 9.78024 18.1551 9.01498M7.11616 11.6089C6.88706 10.9978 6.7619 10.3369 6.7619 9.64706C6.7619 6.52827 9.32028 4 12.4762 4C15.4159 4 17.8371 6.19371 18.1551 9.01498M7.11616 11.6089C7.68059 11.7184 8.20528 11.9374 8.66667 12.2426" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path>
+            </svg>
+        </div>
+        <div class="cloud">
+            <svg width="200" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                <path d="M14.381 9.02721C14.9767 8.81911 15.6178 8.70588 16.2857 8.70588C16.9404 8.70588 17.5693 8.81468 18.1551 9.01498M7.11616 11.6089C6.8475 11.5567 6.56983 11.5294 6.28571 11.5294C3.91878 11.5294 2 13.4256 2 15.7647C2 18.1038 3.91878 20 6.28571 20H16.2857C19.4416 20 22 17.4717 22 14.3529C22 11.8811 20.393 9.78024 18.1551 9.01498M7.11616 11.6089C6.88706 10.9978 6.7619 10.3369 6.7619 9.64706C6.7619 6.52827 9.32028 4 12.4762 4C15.4159 4 17.8371 6.19371 18.1551 9.01498M7.11616 11.6089C7.68059 11.7184 8.20528 11.9374 8.66667 12.2426" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path>
+            </svg>
+        </div>
+    </div>
 
-  <!-- Espaço entre seções -->
-  <div class="space"></div>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg width="160" height="40" viewBox="0 0 450 100" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(45, 27) scale(1.8)">
+                        <path d="M14.381 9.02721C14.9767 8.81911 15.6178 8.70588 16.2857 8.70588C16.9404 8.70588 17.5693 8.81468 18.1551 9.01498M7.11616 11.6089C6.8475 11.5567 6.56983 11.5294 6.28571 11.5294C3.91878 11.5294 2 13.4256 2 15.7647C2 18.1038 3.91878 20 6.28571 20H16.2857C19.4416 20 22 17.4717 22 14.3529C22 11.8811 20.393 9.78024 18.1551 9.01498M7.11616 11.6089C6.88706 10.9978 6.7619 10.3369 6.7619 9.64706C6.7619 6.52827 9.32028 4 12.4762 4C15.4159 4 17.8371 6.19371 18.1551 9.01498M7.11616 11.6089C7.68059 11.7184 8.20528 11.9374 8.66667 12.2426" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                    </g>
+                    <text x="125" y="55" font-family="Times New Roman, serif" font-size="24" fill="#FFFFFF" font-weight="400" letter-spacing="2">SPECTER</text>
+                    <text x="265" y="55" font-family="Times New Roman, serif" font-size="24" fill="#FFFFFF" font-weight="400" letter-spacing="2">SOFTWARE</text>
+                </svg>
+            </div>
+        </header>
 
-  <!-- Exibindo os GIFs com links -->
-  <img draggable="false" src="https://angusnicneven.com/images/deadend.gif" class="t" alt="those" />
-  <img draggable="false" src="https://angusnicneven.com/images/deadend.gif" class="t2" alt="organs" />
+        <section class="main">
+            <h1>Grandes atualizações estão a caminho</h1>
+            <p>Estamos trabalhando em algo incrível. Nossa equipe está desenvolvendo soluções inovadoras em nuvem para transformar a maneira como você gerencia seus dados e aplicações.</p>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">00</span>
+                    <span class="countdown-label">Dias</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
+            
+        </section>
 
-  <!-- Links com GIFs de fundo -->
-  <ul>
-    <li>
-      <a href="indexx">
-        <div id="un" alt="are"></div>
-      </a>
-      <a href="Sol_onset">
-        <div id="rre" alt="when"></div>
-      </a>
-    </li>
-  </ul>
+        <footer>
+            <p>&copy; 2025 Specter Software. Todos os direitos reservados.</p>
+        </footer>
+    </div>
 
-  <!-- Link adicional com GIF -->
-  <a href="quolle_cencuun_pellsen_en_somet_nac">
-    <img draggable="false" class="ayy" src="https://angusnicneven.com/images/With_Wilbells_will_why_waste_whit_worrying.gif" />
-  </a>
-
-  <!-- Caixa de alerta invisível -->
-  <div class="warning">
-    <img draggable="false" src="https://angusnicneven.com/images/thisisanalertwarning.gif" />
-  </div>
-
-  <!-- Imagem interativa e animada -->
-  <div class="reveal">
-    <img draggable="false" src="https://angusnicneven.com/images/We_havemercyimage.gif" />
-  </div>
-
+    <script>
+        // Set the launch date (30 days from now)
+        const launchDate = new Date();
+        launchDate.setDate(launchDate.getDate() + 30);
+        
+        // Update countdown every second
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            
+            // Calculate days, hours, minutes, seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the countdown
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // If the countdown is over
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+            }
+        }, 1000);
+        });
+    </script>
 </body>
-
 </html>
