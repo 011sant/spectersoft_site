@@ -59,6 +59,7 @@
             --gradient-main: linear-gradient(135deg, var(--primary), var(--secondary));
             --gradient-accent: linear-gradient(135deg, var(--accent), #ffc830);
             --shadow: 0 20px 40px rgba(0, 87, 255, 0.15);
+            --shadow-text: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -84,18 +85,17 @@
         }
 
         .hero-title span {
-            background: linear-gradient(90deg, 
-                var(--primary), 
-                var(--secondary),
-                var(--accent),
-                var(--primary)
-            );
-            background-size: 300% 100%;
-            animation: gradientMove 8s infinite linear;
+            background: var(--gradient-main);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: none;
+            text-shadow: var(--shadow-text);
+            animation: none;
+            transform: translateZ(0);
+        }
+
+        .hero-title span:hover {
+            transform: translateY(-2px);
         }
 
         @keyframes gradientMove {
@@ -128,6 +128,9 @@
             color: var(--text);
             overflow-x: hidden;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
         
         .wrapper {
@@ -135,6 +138,11 @@
             position: relative;
             display: grid;
             grid-template-rows: auto 1fr auto;
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            perspective: 1px;
+            transform-style: preserve-3d;
         }
         
         .particles {
@@ -242,13 +250,13 @@
             background-clip: text;
             color: transparent;
             position: relative;
-            animation: textFloat 5s ease-in-out infinite;
-            text-shadow: 0 5px 15px rgba(0, 87, 255, 0.2);
-            transition: transform 0.3s ease;
+            text-shadow: var(--shadow-text);
+            transform: translateZ(0);
+            transition: transform 0.2s ease;
         }
         
         .hero-title span:hover {
-            transform: translateY(-5px) scale(1.05);
+            transform: translateY(-2px);
         }
         
         .hero-title span:nth-child(2) {
@@ -272,11 +280,10 @@
             margin-left: auto;
             margin-right: auto;
             font-weight: 400;
-            background: linear-gradient(45deg, var(--text) 30%, var(--text-light));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-shadow: var(--shadow-text);
+            background: none;
+            -webkit-background-clip: initial;
+            background-clip: initial;
         }
         
         .countdown {
@@ -298,7 +305,8 @@
             box-shadow: var(--shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 
                 0 10px 30px rgba(0, 87, 255, 0.1),
@@ -436,7 +444,8 @@
             position: absolute;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 30px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             z-index: -1;
@@ -548,7 +557,7 @@
         /* Melhorias no scroll */
         html {
             scroll-behavior: smooth;
-            overflow-y: overlay;
+            overflow-y: auto;
         }
         
         body {
@@ -558,21 +567,23 @@
         
         /* Estilização da barra de rolagem */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 12px;
+            height: 12px;
         }
         
         ::-webkit-scrollbar-track {
-            background: transparent;
+            background: var(--bg);
+            border-radius: 6px;
         }
         
         ::-webkit-scrollbar-thumb {
-            background: rgba(0, 87, 255, 0.2);
-            border-radius: 10px;
-            transition: background 0.3s;
+            background: rgba(var(--primary-rgb), 0.2);
+            border-radius: 6px;
+            border: 3px solid var(--bg);
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 87, 255, 0.4);
+            background: rgba(var(--primary-rgb), 0.4);
         }
         
         /* Otimização de performance */
@@ -779,11 +790,28 @@
                 requestAnimationFrame(updateParticles);
             }
             
+            // Otimizar scroll
+            function optimizeScroll() {
+                let ticking = false;
+                
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        window.requestAnimationFrame(() => {
+                            // Atualizar elementos apenas quando necessário
+                            document.documentElement.style.setProperty('--scroll', window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight));
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+            }
+
             // Inicialização
             document.addEventListener('DOMContentLoaded', function() {
                 createParticles();
                 addCountdownInteraction();
                 updateParticles();
+                optimizeScroll();
             });
 
             // Adicionar suporte RGB para gradientes
