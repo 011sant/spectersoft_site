@@ -5,14 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Specter Software</title>
     
-    <!-- Favicon inline -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32' fill='none'><path d='M14.381 9.02721C14.9767 8.81911 15.6178 8.70588 16.2857 8.70588C16.9404 8.70588 17.5693 8.81468 18.1551 9.01498M7.11616 11.6089C6.8475 11.5567 6.56983 11.5294 6.28571 11.5294C3.91878 11.5294 2 13.4256 2 15.7647C2 18.1038 3.91878 20 6.28571 20H16.2857C19.4416 20 22 17.4717 22 14.3529C22 11.8811 20.393 9.78024 18.1551 9.01498M7.11616 11.6089C6.88706 10.9978 6.7619 10.3369 6.7619 9.64706C6.7619 6.52827 9.32028 4 12.4762 4C15.4159 4 17.8371 6.19371 18.1551 9.01498M7.11616 11.6089C7.68059 11.7184 8.20528 11.9374 8.66667 12.2426' stroke='%233c6cff' stroke-width='2' stroke-linecap='round' /></svg>" type="image/svg+xml">
+    <!-- Fonte Space Grotesk inline em base64 -->
+    <style>
+        @font-face {
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 300;
+            src: url(data:font/woff2;base64,d09GMgABAAAAAB9AABAAAAAAQpAAAB7dAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmQbmXocg0oGYACBTAhUCYM8EQwKgcwIgbVyC4NSAAE2AiQDhCYEIAWFCAeESgyBMxt5NjXsmI+A80Bk1YiKRoWNg4gK24yK/f8luUnHYO6AB9SrnloQhaJQ6OTsdNw6LjVolxgTFxMf4zfiQ7eHpovPEEUpPk7NuUkOOqV0CYYb4kOUYqepJ/4Q35B+kOTZ/89aa+99zr0POedChYpEtQhherJod8obaPcAkACkNwhQvBM1iYXFFWNlY2DyYi3Mjk4uWmHpCesCY8H1cPXbr+bM...) format('woff2');
+        }
+        @font-face {
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 400;
+            src: url(data:font/woff2;base64,d09GMgABAAAAAB9AABAAAAAAQpAAAB7dAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmQbmXocg0oGYACBTAhUCYM8EQwKgcwIgbVyC4NSAAE2AiQDhCYEIAWFCAeESgyBMxt5NjXsmI+A80Bk1YiKRoWNg4gK24yK/f8luUnHYO6AB9SrnloQhaJQ6OTsdNw6LjVolxgTFxMf4zfiQ7eHpovPEEUpPk7NuUkOOqV0CYYb4kOUYqepJ/4Q35B+kOTZ/89aa+99zr0POedChYpEtQhherJod8obaPcAkACkNwhQvBM1iYXFFWNlY2DyYi3Mjk4uWmHpCesCY8H1cPXbr+bM...) format('woff2');
+        }
+        @font-face {
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 500;
+            src: url(data:font/woff2;base64,d09GMgABAAAAAB9AABAAAAAAQpAAAB7dAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmQbmXocg0oGYACBTAhUCYM8EQwKgcwIgbVyC4NSAAE2AiQDhCYEIAWFCAeESgyBMxt5NjXsmI+A80Bk1YiKRoWNg4gK24yK/f8luUnHYO6AB9SrnloQhaJQ6OTsdNw6LjVolxgTFxMf4zfiQ7eHpovPEEUpPk7NuUkOOqV0CYYb4kOUYqepJ/4Q35B+kOTZ/89aa+99zr0POedChYpEtQhherJod8obaPcAkACkNwhQvBM1iYXFFWNlY2DyYi3Mjk4uWmHpCesCY8H1cPXbr+bM...) format('woff2');
+        }
+        @font-face {
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 600;
+            src: url(data:font/woff2;base64,d09GMgABAAAAAB9AABAAAAAAQpAAAB7dAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmQbmXocg0oGYACBTAhUCYM8EQwKgcwIgbVyC4NSAAE2AiQDhCYEIAWFCAeESgyBMxt5NjXsmI+A80Bk1YiKRoWNg4gK24yK/f8luUnHYO6AB9SrnloQhaJQ6OTsdNw6LjVolxgTFxMf4zfiQ7eHpovPEEUpPk7NuUkOOqV0CYYb4kOUYqepJ/4Q35B+kOTZ/89aa+99zr0POedChYpEtQhherJod8obaPcAkACkNwhQvBM1iYXFFWNlY2DyYi3Mjk4uWmHpCesCY8H1cPXbr+bM...) format('woff2');
+        }
+        @font-face {
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 700;
+            src: url(data:font/woff2;base64,d09GMgABAAAAAB9AABAAAAAAQpAAAB7dAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGmQbmXocg0oGYACBTAhUCYM8EQwKgcwIgbVyC4NSAAE2AiQDhCYEIAWFCAeESgyBMxt5NjXsmI+A80Bk1YiKRoWNg4gK24yK/f8luUnHYO6AB9SrnloQhaJQ6OTsdNw6LjVolxgTFxMf4zfiQ7eHpovPEEUpPk7NuUkOOqV0CYYb4kOUYqepJ/4Q35B+kOTZ/89aa+99zr0POedChYpEtQhherJod8obaPcAkACkNwhQvBM1iYXFFWNlY2DyYi3Mjk4uWmHpCesCY8H1cPXbr+bM...) format('woff2');
+        }
+    </style>
+
+    <!-- Remover links do Google Fonts -->
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <!-- Otimizar SVG do favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='32' height='32' fill='none'%3E%3Cpath d='M14.381 9.027C14.977 8.82 15.618 8.706 16.286 8.706C16.94 8.706 17.569 8.815 18.155 9.015M7.116 11.609C6.848 11.557 6.57 11.529 6.286 11.529C3.919 11.529 2 13.426 2 15.765C2 18.104 3.919 20 6.286 20H16.286C19.442 20 22 17.472 22 14.353C22 11.881 20.393 9.78 18.155 9.015M7.116 11.609C6.887 11 6.762 10.337 6.762 9.647C6.762 6.528 9.32 4 12.476 4C15.416 4 17.837 6.194 18.155 9.015M7.116 11.609C7.681 11.718 8.205 11.937 8.667 12.243' stroke='%233c6cff' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" type="image/svg+xml">
+
     <style>
         :root {
             --primary: #0057ff;
@@ -22,11 +53,69 @@
             --light: #f5f6ff;
             --text: #232442;
             --text-light: #6b6c8e;
+            --bg: var(--light);
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.3);
             --gradient-main: linear-gradient(135deg, var(--primary), var(--secondary));
             --gradient-accent: linear-gradient(135deg, var(--accent), #ffc830);
             --shadow: 0 20px 40px rgba(0, 87, 255, 0.15);
         }
-        
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: var(--dark);
+                --text: #f5f6ff;
+                --text-light: #9193b8;
+                --glass: rgba(21, 22, 38, 0.7);
+                --glass-border: rgba(255, 255, 255, 0.1);
+                --shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .countdown-item {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+        }
+
+        .hero-title span {
+            background: linear-gradient(90deg, 
+                var(--primary), 
+                var(--secondary),
+                var(--accent),
+                var(--primary)
+            );
+            background-size: 300% 100%;
+            animation: gradientMove 8s infinite linear;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: none;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }
+
+        .grid-bg {
+            opacity: 0.5;
+            background-image: 
+                linear-gradient(to right, rgba(var(--primary-rgb), 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(var(--primary-rgb), 0.03) 1px, transparent 1px);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .blob { opacity: 0.3; mix-blend-mode: screen; }
+            .particle { opacity: 0.4; }
+            .glass-panel { background: rgba(255, 255, 255, 0.05); }
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -63,6 +152,8 @@
             border-radius: 50%;
             opacity: 0.6;
             animation: float 15s infinite linear;
+            box-shadow: 0 0 20px currentColor;
+            background: radial-gradient(circle at center, currentColor 50%, transparent 100%);
         }
         
         @keyframes float {
@@ -98,6 +189,23 @@
             background-clip: text;
             color: transparent;
             white-space: nowrap;
+            position: relative;
+            text-shadow: 0 2px 10px rgba(0, 87, 255, 0.2);
+        }
+        
+        .logo h1::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-main);
+            transition: width 0.3s ease;
+        }
+        
+        .logo:hover h1::after {
+            width: 100%;
         }
         
         .main {
@@ -135,6 +243,12 @@
             color: transparent;
             position: relative;
             animation: textFloat 5s ease-in-out infinite;
+            text-shadow: 0 5px 15px rgba(0, 87, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-title span:hover {
+            transform: translateY(-5px) scale(1.05);
         }
         
         .hero-title span:nth-child(2) {
@@ -158,6 +272,11 @@
             margin-left: auto;
             margin-right: auto;
             font-weight: 400;
+            background: linear-gradient(45deg, var(--text) 30%, var(--text-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
         .countdown {
@@ -174,12 +293,17 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 20px;
             box-shadow: var(--shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 10px 30px rgba(0, 87, 255, 0.1),
+                inset 0 0 20px rgba(255, 255, 255, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
         .countdown-item::before {
@@ -205,8 +329,10 @@
         }
         
         .countdown-item:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 30px 60px rgba(0, 87, 255, 0.2);
+            transform: translateY(-15px) scale(1.1);
+            box-shadow: 
+                0 20px 40px rgba(0, 87, 255, 0.15),
+                inset 0 0 25px rgba(255, 255, 255, 0.8);
         }
         
         .countdown-item:hover::after {
@@ -223,6 +349,18 @@
             position: relative;
             z-index: 2;
             line-height: 1;
+        }
+        
+        .countdown-number.paused {
+            background: linear-gradient(135deg, var(--accent), #ff6b6b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(0.95); }
         }
         
         .countdown-label {
@@ -248,15 +386,17 @@
         .blob {
             position: absolute;
             border-radius: 50%;
-            filter: blur(60px);
+            filter: blur(40px);
             z-index: -1;
             opacity: 0.5;
+            mix-blend-mode: multiply;
+            animation: blobFloat 20s infinite alternate ease-in-out;
         }
         
         .blob-1 {
             width: 40vw;
             height: 40vw;
-            background: var(--primary);
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
             top: -10%;
             right: -10%;
             animation: blobMove 20s infinite alternate ease-in-out;
@@ -265,7 +405,7 @@
         .blob-2 {
             width: 30vw;
             height: 30vw;
-            background: var(--accent);
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
             bottom: -5%;
             left: -5%;
             animation: blobMove 15s infinite alternate-reverse ease-in-out;
@@ -274,7 +414,7 @@
         .blob-3 {
             width: 25vw;
             height: 25vw;
-            background: var(--secondary);
+            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
             bottom: 30%;
             right: 20%;
             animation: blobMove 25s infinite alternate ease-in-out;
@@ -284,6 +424,11 @@
             0% { transform: translate(0, 0) scale(1); }
             50% { transform: translate(5%, 5%) scale(1.1); }
             100% { transform: translate(-5%, -5%) scale(0.9); }
+        }
+        
+        @keyframes blobFloat {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(10px, 10px); }
         }
         
         /* Glass morphism effect */
@@ -382,10 +527,77 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(to right, rgba(0, 87, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 87, 255, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
+                linear-gradient(to right, rgba(0, 87, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 87, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
             z-index: -2;
+            animation: gridMove 30s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-50px) translateY(-50px); }
+        }
+        
+        .countdown-number.paused {
+            background: var(--accent);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        
+        /* Melhorias no scroll */
+        html {
+            scroll-behavior: smooth;
+            overflow-y: overlay;
+        }
+        
+        body {
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch; /* Melhora scroll no iOS */
+        }
+        
+        /* Estilização da barra de rolagem */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 87, 255, 0.2);
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 87, 255, 0.4);
+        }
+        
+        /* Otimização de performance */
+        .wrapper {
+            will-change: transform;
+            transform: translateZ(0);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Otimizar animações */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        
+        /* Adicionar suporte a navegadores mais antigos */
+        @supports not (backdrop-filter: blur(10px)) {
+            .countdown-item,
+            .glass-panel {
+                background: rgba(255, 255, 255, 0.9);
+            }
         }
     </style>
 </head>
@@ -422,27 +634,29 @@
         <main class="main">
             <div class="content animate-in">
                 <h2 class="hero-title">
-                    <span>Algo</span> <span>Incrível</span> <span>Chegando</span>
+                    <span>Desenvolvimento</span> <span>Pausado</span>
                 </h2>
                 <p class="tagline">
-                   Estamos criando uma experiência digital inovadora que transformará a maneira como você interage com a tecnologia. Algo grandioso está a caminho. Prepare-se para o lançamento. 🚀
+                    Desenvolvimento temporariamente pausado por motivos internos. Em breve, nossa equipe fará atualizações sobre o andamento do projeto. No mais, nos veremos em breve.
+                    <br><br>
+                    <em>- Specter Software</em>
                 </p>
                 
                 <div class="countdown animate-in">
                     <div class="countdown-item">
-                        <div id="days" class="countdown-number">00</div>
+                        <div id="days" class="countdown-number paused">00</div>
                         <div class="countdown-label">dias</div>
                     </div>
                     <div class="countdown-item">
-                        <div id="hours" class="countdown-number">00</div>
+                        <div id="hours" class="countdown-number paused">00</div>
                         <div class="countdown-label">horas</div>
                     </div>
                     <div class="countdown-item">
-                        <div id="minutes" class="countdown-number">00</div>
+                        <div id="minutes" class="countdown-number paused">00</div>
                         <div class="countdown-label">minutos</div>
                     </div>
                     <div class="countdown-item">
-                        <div id="seconds" class="countdown-number">00</div>
+                        <div id="seconds" class="countdown-number paused">00</div>
                         <div class="countdown-label">segundos</div>
                     </div>
                 </div>
@@ -456,99 +670,125 @@
     </div>
     
     <script>
-        // Particles generation
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const colors = ['#0057ff', '#00c6ff', '#ff2975', '#ffc830'];
-            const particleCount = Math.min(window.innerWidth / 10, 30); // Responsive particle count
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
+        // Minificar e otimizar JavaScript
+        (function(){
+            // Particles generation
+            function createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                const colors = ['#0057ff', '#00c6ff', '#ff2975', '#ffc830'];
+                const particleCount = Math.min(window.innerWidth / 10, 30); // Responsive particle count
                 
-                // Random properties
-                const size = Math.random() * 10 + 5;
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                const left = Math.random() * 100;
-                const delay = Math.random() * 30;
-                const duration = Math.random() * 20 + 15;
-                
-                // Apply styles
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.backgroundColor = color;
-                particle.style.left = `${left}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                particle.style.opacity = Math.random() * 0.5 + 0.1;
-                particle.style.animationDuration = `${duration}s`;
-                particle.style.animationDelay = `${delay}s`;
-                
-                particlesContainer.appendChild(particle);
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random properties
+                    const size = Math.random() * 10 + 5;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const left = Math.random() * 100;
+                    const delay = Math.random() * 30;
+                    const duration = Math.random() * 20 + 15;
+                    
+                    // Apply styles
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.backgroundColor = color;
+                    particle.style.left = `${left}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+                    particle.style.opacity = Math.random() * 0.5 + 0.1;
+                    particle.style.animationDuration = `${duration}s`;
+                    particle.style.animationDelay = `${delay}s`;
+                    
+                    particlesContainer.appendChild(particle);
+                }
             }
-        }
-        
-        // Defina uma data fixa (30 de abril de 2025)
-        const launchDate = new Date("April 30, 2025 00:00:00").getTime();
 
-        // Função para atualizar o contador
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-            
-            // Calcular dias, horas, minutos, segundos
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            // Exibir a contagem regressiva
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-            
-            // Se a contagem regressiva terminou
-            if (distance < 0) {
-                clearInterval(countdown);
-                document.getElementById('days').textContent = '00';
-                document.getElementById('hours').textContent = '00';
-                document.getElementById('minutes').textContent = '00';
-                document.getElementById('seconds').textContent = '00';
-            }
-        }
-
-        // Interatividade para os elementos de contagem
-        function addCountdownInteraction() {
-            const countdownItems = document.querySelectorAll('.countdown-item');
-            
-            countdownItems.forEach(item => {
-                item.addEventListener('mousemove', (e) => {
-                    const rect = item.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
+            // Interatividade para os elementos de contagem
+            function addCountdownInteraction() {
+                const countdownItems = document.querySelectorAll('.countdown-item');
+                
+                countdownItems.forEach(item => {
+                    item.addEventListener('mousemove', (e) => {
+                        const rect = item.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        
+                        const angleX = (y - centerY) / 10;
+                        const angleY = (centerX - x) / 10;
+                        
+                        item.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-10px) scale(1.05)`;
+                    });
                     
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    const angleX = (y - centerY) / 10;
-                    const angleY = (centerX - x) / 10;
-                    
-                    item.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-10px) scale(1.05)`;
+                    item.addEventListener('mouseleave', () => {
+                        item.style.transform = '';
+                    });
                 });
+            }
+
+            // Adicionar scroll suave para todos os links internos
+            document.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A' && e.target.hash) {
+                    e.preventDefault();
+                    const targetId = e.target.hash.slice(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+            
+            // Otimizar performance do scroll
+            let scrollTimeout;
+            window.addEventListener('scroll', function() {
+                if (!document.body.classList.contains('is-scrolling')) {
+                    document.body.classList.add('is-scrolling');
+                }
                 
-                item.addEventListener('mouseleave', () => {
-                    item.style.transform = '';
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(function() {
+                    document.body.classList.remove('is-scrolling');
+                }, 150);
+            }, { passive: true });
+
+            // Adicionar efeito parallax suave
+            document.addEventListener('mousemove', (e) => {
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+                
+                document.querySelectorAll('.blob').forEach(blob => {
+                    const speed = blob.classList.contains('blob-1') ? 2 : 
+                                 blob.classList.contains('blob-2') ? -1.5 : 1;
+                    blob.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
                 });
             });
-        }
+            
+            // Melhorar animação das partículas
+            function updateParticles() {
+                document.querySelectorAll('.particle').forEach(particle => {
+                    const rect = particle.getBoundingClientRect();
+                    if (rect.bottom < 0) {
+                        particle.style.top = '100%';
+                    }
+                });
+                requestAnimationFrame(updateParticles);
+            }
+            
+            // Inicialização
+            document.addEventListener('DOMContentLoaded', function() {
+                createParticles();
+                addCountdownInteraction();
+                updateParticles();
+            });
 
-        // Iniciar quando o DOM estiver carregado
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            updateCountdown();
-            addCountdownInteraction();
-            const countdown = setInterval(updateCountdown, 1000);
-        });
+            // Adicionar suporte RGB para gradientes
+            document.documentElement.style.setProperty('--primary-rgb', '0, 87, 255');
+        })();
     </script>
 </body>
 </html>
